@@ -209,14 +209,33 @@ interface WebkitWindow extends Window {
   }
 
   // ===========================================================================
-  // TIMER & WAKE LOCK
+  // THEME, TIMER & WAKE LOCK
   // ===========================================================================
+  function syncThemeButton(): void {
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.textContent = isDark ? '☀' : '☾';
+      btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+  }
+
+  function toggleTheme(): void {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem('minty-theme', next);
+    } catch {
+      // Storage unavailable
+    }
+    syncThemeButton();
+  }
+
   async function requestWakeLock(): Promise<void> {
     const nav = navigator as WakeLockNavigator;
     if (nav.wakeLock) {
       try {
         await nav.wakeLock.request('screen');
-        byId('wakelock-pill').classList.remove('hidden');
       } catch {
         // Ignore in unsupported contexts
       }
@@ -951,6 +970,9 @@ interface WebkitWindow extends Window {
         renderWizard();
         window.scrollTo(0, 0);
         break;
+      case 'toggle-theme':
+        toggleTheme();
+        break;
       case 'jump-churn': {
         const idx = wizSteps.findIndex((s) => s.isChurn);
         if (idx !== -1) {
@@ -971,5 +993,6 @@ interface WebkitWindow extends Window {
     if (e.key === 'ArrowLeft') wizPrev();
   });
 
+  syncThemeButton();
   setMode(mode);
 })();

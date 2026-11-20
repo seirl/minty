@@ -3,21 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.2L Ice Cream Recipes</title>
+  <title>🍨 Minty</title>
+  <script>
+    (() => {
+      try {
+        const param = new URLSearchParams(location.search).get('theme');
+        const saved = param || localStorage.getItem('minty-theme');
+        const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (_) {}
+    })();
+  </script>
   <style>
     :root {
+      color-scheme: light;
       --bg: #FFFFFF;
       --subtle-bg: #F8F7F4;
+      --footer-bg: rgba(255, 255, 255, 0.94);
       --ink: #18181B;
+      --prose: #3F3F46;
       --muted: #71717A;
       --line: #E5E5E0;
       --line-light: #F0EFEA;
+      --box-border: #A1A1AA;
       --amber: #B45309;
       --amber-bg: #FEF3C7;
       --green: #15803D;
       --sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
       --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
       --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #121214;
+      --subtle-bg: #1C1C20;
+      --footer-bg: rgba(18, 18, 20, 0.94);
+      --ink: #F4F4F5;
+      --prose: #D4D4D8;
+      --muted: #A1A1AA;
+      --line: #27272A;
+      --line-light: #1E1E22;
+      --box-border: #52525B;
+      --amber: #FBBF24;
+      --amber-bg: rgba(245, 158, 11, 0.16);
+      --green: #4ADE80;
     }
 
     * {
@@ -405,7 +435,7 @@
 
     .step-prose {
       margin: 0;
-      color: #3F3F46;
+      color: var(--prose);
       font-size: 14.5px;
       line-height: 1.6;
     }
@@ -506,7 +536,7 @@
       width: 20px;
       height: 20px;
       border-radius: 5px;
-      border: 1.5px solid #A1A1AA;
+      border: 1.5px solid var(--box-border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -613,7 +643,7 @@
     .tele-prose {
       font-size: 18px;
       line-height: 1.6;
-      color: #27272A;
+      color: var(--prose);
       margin: 0 0 24px;
     }
 
@@ -640,7 +670,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 255, 255, 0.96);
+      background: var(--footer-bg);
       backdrop-filter: blur(6px);
       border-top: 1px solid var(--line);
       padding: 12px 20px;
@@ -736,6 +766,16 @@
     /* ==================== PRINT ==================== */
     @media print {
       @page { margin: 14mm; }
+      :root, :root[data-theme="dark"] {
+        color-scheme: light;
+        --bg: #FFFFFF;
+        --subtle-bg: #F8F7F4;
+        --ink: #000000;
+        --prose: #27272A;
+        --muted: #52525B;
+        --line: #D4D4D8;
+        --line-light: #E4E4E7;
+      }
       .header, .sidebar, .sheet-actions, .mobile-back, .wizard-wrap, .wiz-footer, .no-print {
         display: none !important;
       }
@@ -758,10 +798,7 @@
   <!-- ==================== HEADER ==================== -->
   <header class="header">
     <div class="header-inner">
-      <button class="site-title" data-action="go-home">
-        <span>1.2L Ice Cream</span>
-        <span id="wakelock-pill" class="awake-dot hidden">· Awake</span>
-      </button>
+      <button class="site-title" data-action="go-home">🍨 Minty</button>
 
       <nav class="nav-links">
         <button id="nav-book" class="nav-link" data-action="set-mode" data-mode="book">Recipes</button>
@@ -769,6 +806,7 @@
         <span class="nav-sep hide-xs"></span>
         <button class="nav-link hide-xs" data-action="print">Print</button>
         <a class="nav-link" href="ice_cream.pdf" target="_blank">PDF</a>
+        <button id="theme-toggle" class="nav-link" data-action="toggle-theme" title="Toggle dark mode">☾</button>
       </nav>
     </div>
   </header>
