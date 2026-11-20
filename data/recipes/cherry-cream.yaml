@@ -1,0 +1,60 @@
+id: cherry-cream
+name: Cherry Cream
+emoji: "🍒"
+category: Fruit Cream
+reviewed: false
+accent: rose
+notes: Pure fruit, zero marzipan/benzaldehyde — uses plain pitted dark sweet cherries simmered for ~7 minutes to evaporate ~80 g of excess water (~755 g / ~685 mL finished base) with no freeze-dried powder, Amarena syrup, almond extract, or Kirsch.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 115g | reduced since dark sweet cherries bring ~42 g natural sugar
+      guar_gum: 0.8g
+      salt: 1g
+    do: Whisk the sugar, guar gum, and salt together in a small dry bowl until combined, and set aside.
+
+  - phase: prep
+    title: Simmer & reduce cherries
+    emoji: "🔥"
+    timer: 7m
+    add:
+      cherries: 300g | pitted dark sweet cherries, frozen or fresh
+      lemon_juice: 10g
+    do: Combine the pitted dark cherries and lemon juice in a wide saucepan or skillet over medium-high heat. Once bubbling, simmer uncovered for 6–8 minutes, stirring occasionally, until the released juices thicken and reduce to ~220 g total.
+
+  - phase: prep
+    title: Cool with milk & blitz smooth
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 150g | cold, cools the warm cherries
+    do: Scrape the reduced cherries and all their jammy juice into a tall pitcher, pour in the cold milk and dry sugar mix, and blitz with your Stabmixer for 2–3 minutes until completely smooth and ruby-purple.
+
+  - phase: prep
+    title: Stir in cold cream & vanilla
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+      vanilla: 4g
+      vodka: 8g | optional, plain vodka only (avoid Kirsch)
+    do: Put the Stabmixer down. Gently stir in the cold heavy cream and vanilla extract (plus plain vodka if using) by hand.
+
+  - phase: chill
+    title: Chill base completely
+    emoji: "❄️"
+    timer: 3h
+    do: Refrigerate covered for 3–4 hours until thoroughly cold (4°C or below, since the cherries started warm).
+
+  - phase: churn
+    title: Churn cherry cream
+    emoji: "🍒"
+    timer: 20m
+    do: Pour chilled cherry base into the spinning machine and churn until thick soft-serve consistency forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until scoopable.
