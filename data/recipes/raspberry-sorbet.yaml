@@ -4,32 +4,38 @@ emoji: "🍇"
 category: Sorbet
 reviewed: false
 accent: rose
-notes: Strained through a fine-mesh sieve after blending to remove crunchy raspberry seeds.
+notes: Berries are pulsed briefly and strained before blitzing in the sugar and guar gum so seeds never shatter into bitter grit.
 
 steps:
   - phase: prep
     title: Whisk dry mix
     emoji: "🥣"
     add:
-      sugar: 150g
+      sugar: 180g
       guar_gum: 0.4g
       salt: 0.5g | pinch
-    do: Whisk the sugar, guar gum, and salt together in a dry bowl so no lumps form.
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl so no lumps form, and set aside.
 
   - phase: prep
-    title: Blitz raspberries cold
+    title: Pulse raspberries briefly
     emoji: "⚡"
-    timer: 2m
+    timer: 15s
     add:
       raspberries: 400g
       water: 200g
       lemon_juice: 15g
-    do: Combine raspberries, cold water, lemon juice, and dry sugar mix in a pitcher. Blitz with your Stabmixer for 2 minutes until completely dissolved.
+    do: Combine raspberries, cold water, and lemon juice in a pitcher. Pulse with your Stabmixer for just 10–15 seconds to break the berries open without pulverizing the seeds into bitter grit.
 
   - phase: prep
-    title: Strain out seeds
+    title: Strain out whole seeds
     emoji: "🕸️"
-    do: Pour the blended sorbet base through a fine-mesh sieve into your chilling container, pressing firmly with a spoon to remove all seeds.
+    do: Pour the crushed berries through a fine-mesh sieve into a clean pitcher, pressing firmly with the back of a spoon to extract all the juice while leaving whole seeds behind.
+
+  - phase: prep
+    title: Blitz dry mix into seedless purée
+    emoji: "⚡"
+    timer: 2m
+    do: Pour the dry sugar and guar mix into the strained seedless purée and blitz with your Stabmixer for 2 minutes until completely dissolved and slightly thickened.
 
   - phase: chill
     title: Chill base

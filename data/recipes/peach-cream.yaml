@@ -4,7 +4,7 @@ emoji: "🍑"
 category: Fruit Cream
 reviewed: false
 accent: orange
-notes: Uses 150 g whole milk instead of 350 g so ripe peach water stays creamy rather than icy.
+notes: Uses 150 g whole milk plus freeze-dried peaches to bind ripe peach water and boost aroma so the scoop stays creamy rather than icy.
 
 steps:
   - phase: prep
@@ -22,16 +22,18 @@ steps:
     timer: 2m30s
     add:
       peaches: 250g
+      freeze_dried_peaches: 18g | ~1 small pouch, absorbs water & boosts aroma
       whole_milk: 150g | reduced for fruit water
       lemon_juice: 5g
-    do: Combine peeled ripe peaches, cold milk, lemon juice, and dry mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until silky smooth.
+    do: Combine peeled ripe peaches, freeze-dried peaches, cold milk, lemon juice, and dry mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until completely pulverized and silky smooth.
 
   - phase: prep
-    title: Stir in cream by hand
+    title: Stir in cream & vanilla by hand
     emoji: "🥄"
     add:
       heavy_cream: 250g
-    do: Without using the blender, gently stir in the cold heavy cream by hand.
+      vanilla: 4g
+    do: Without using the blender, gently stir in the cold heavy cream and vanilla extract by hand.
 
   - phase: chill
     title: Chill base

@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🍨 Minty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" id="meta-theme-color" content="#FFFFFF" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Minty" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Minty</title>
   <script>
     (() => {
       try {
@@ -11,6 +20,8 @@
         const saved = param || localStorage.getItem('minty-theme');
         const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        const tc = document.getElementById('meta-theme-color');
+        if (tc) tc.setAttribute('content', dark ? '#121214' : '#FFFFFF');
       } catch (_) {}
     })();
   </script>
@@ -92,7 +103,7 @@
       max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 52px;
+      height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -101,12 +112,20 @@
 
     .site-title {
       font-weight: 700;
-      font-size: 15px;
-      letter-spacing: -0.01em;
+      font-size: 19px;
+      letter-spacing: -0.02em;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       white-space: nowrap;
+    }
+
+    .site-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      flex-shrink: 0;
+      display: block;
     }
 
     .awake-dot {
@@ -125,7 +144,7 @@
     .nav-link {
       font-size: 14px;
       color: var(--muted);
-      height: 52px;
+      height: 58px;
       display: inline-flex;
       align-items: center;
       border-bottom: 2px solid transparent;
@@ -255,7 +274,7 @@
 
     .sheet-top-row {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
@@ -285,33 +304,61 @@
     .sheet-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 10px;
       font-size: 13px;
     }
 
     .scale-picker {
       display: inline-flex;
+      align-items: center;
+      height: 32px;
+      padding: 2px;
+      background: var(--subtle-bg);
       border: 1px solid var(--line);
-      border-radius: 6px;
-      overflow: hidden;
+      border-radius: 7px;
+      gap: 2px;
     }
 
     .scale-opt {
       font-family: var(--mono);
       font-size: 12px;
-      padding: 3px 9px;
+      height: 26px;
+      padding: 0 9px;
+      border-radius: 5px;
       color: var(--muted);
-      border-right: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .scale-opt:last-child {
-      border-right: none;
+    .scale-opt:hover {
+      color: var(--ink);
     }
 
     .scale-opt.active {
+      background: var(--bg);
+      color: var(--ink);
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-start-batch {
+      height: 32px;
+      padding: 0 13px;
+      border-radius: 7px;
       background: var(--ink);
       color: var(--bg);
+      font-size: 13px;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-start-batch:hover {
+      opacity: 0.86;
     }
 
     .text-action {
@@ -551,8 +598,8 @@
       color: var(--bg);
     }
 
-    .pick-row.selected .pick-name {
-      font-weight: 600;
+    .pick-name {
+      font-weight: 500;
     }
 
     .pick-meta {
@@ -584,6 +631,12 @@
     .check-item.done {
       opacity: 0.4;
       text-decoration: line-through;
+    }
+
+    .check-item.done .pick-box {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
     }
 
     .check-amt {
@@ -673,7 +726,7 @@
       background: var(--footer-bg);
       backdrop-filter: blur(6px);
       border-top: 1px solid var(--line);
-      padding: 12px 20px;
+      padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
       z-index: 20;
     }
 
@@ -798,7 +851,10 @@
   <!-- ==================== HEADER ==================== -->
   <header class="header">
     <div class="header-inner">
-      <button class="site-title" data-action="go-home">🍨 Minty</button>
+      <button class="site-title" data-action="go-home">
+        <img class="site-logo" src="icon.svg" alt="" width="30" height="30" />
+        <span>Minty</span>
+      </button>
 
       <nav class="nav-links">
         <button id="nav-book" class="nav-link" data-action="set-mode" data-mode="book">Recipes</button>
@@ -831,8 +887,8 @@
       </div>
       <p class="wiz-sub">Select flavors to prep. Shared White Base batches automatically combine into one bowl.</p>
 
-      <div id="wiz-merge-note" class="wiz-note-bar hidden"></div>
       <div id="wiz-pick-lists"></div>
+      <div id="wiz-merge-note" class="wiz-note-bar hidden"></div>
     </div>
 
     <!-- Counter Checklist -->

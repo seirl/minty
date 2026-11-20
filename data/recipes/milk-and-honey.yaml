@@ -11,7 +11,7 @@ steps:
     title: Whisk reduced-sugar dry mix
     emoji: "🥣"
     add:
-      sugar: 90g | reduced for honey
+      sugar: 70g | reduced for honey
       guar_gum: 0.8g
       salt: 1g
     do: Whisk the sugar, guar gum, and salt together in a small dry bowl.
@@ -22,7 +22,7 @@ steps:
     timer: 2m30s
     add:
       whole_milk: 350g
-      honey: 35g
+      honey: 55g | aromatic blossom or wildflower honey
     do: Pour cold milk, runny honey, and dry sugar mix into a pitcher and blitz with your Stabmixer for 2–3 minutes until completely dissolved.
 
   - phase: prep

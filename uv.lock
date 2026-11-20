@@ -295,6 +295,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "jinja2" },
+    { name = "pillow" },
     { name = "pyyaml" },
     { name = "reportlab" },
 ]
@@ -302,6 +303,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "jinja2", specifier = ">=3.1" },
+    { name = "pillow", specifier = ">=10.0" },
     { name = "pyyaml", specifier = ">=6.0" },
     { name = "reportlab", specifier = ">=4.0" },
 ]

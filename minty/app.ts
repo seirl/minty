@@ -218,6 +218,10 @@ interface WebkitWindow extends Window {
       btn.textContent = isDark ? '☀' : '☾';
       btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
     }
+    const tc = document.getElementById('meta-theme-color');
+    if (tc) {
+      tc.setAttribute('content', isDark ? '#121214' : '#FFFFFF');
+    }
   }
 
   function toggleTheme(): void {
@@ -435,7 +439,7 @@ interface WebkitWindow extends Window {
           </h1>
           <div class="sheet-actions">
             <div class="scale-picker">${scaleButtons}</div>
-            <button class="text-action" data-action="cook-single" data-id="${esc(r.id)}">Open in Wizard →</button>
+            <button class="btn-start-batch" data-action="cook-single" data-id="${esc(r.id)}">Start batch →</button>
           </div>
         </div>
         <div class="sheet-meta">${esc(r.category)} · ${esc(baseText)} · ${totalWeight}</div>
@@ -663,6 +667,38 @@ interface WebkitWindow extends Window {
     return steps;
   }
 
+  let pickListsMounted = false;
+
+  function syncPickState(): void {
+    const selected = RECIPES.filter((r) => selectedIds.has(r.id));
+    const whiteCnt = selected.filter((r) => r.base === 'white-base').length;
+
+    const noteEl = byId('wiz-merge-note');
+    const whiteBase = BASES_BY_ID['white-base'];
+    if (whiteCnt >= 2 && whiteBase) {
+      noteEl.style.visibility = 'visible';
+      noteEl.classList.remove('hidden');
+      noteEl.textContent = `${whiteCnt}× White Base flavors selected — will mix ${fmtG(whiteBase.yield_grams * whiteCnt)} in 1 bowl (${fmtG(whiteBase.yield_grams)} per tub).`;
+    } else {
+      noteEl.style.visibility = 'hidden';
+      noteEl.classList.remove('hidden');
+      noteEl.textContent = '\u00A0';
+    }
+
+    document.querySelectorAll<HTMLElement>('#wiz-pick-lists [data-action="toggle-flavor"]').forEach((btn) => {
+      const id = btn.dataset.id ?? '';
+      btn.classList.toggle('selected', selectedIds.has(id));
+    });
+
+    const n = selectedIds.size;
+    byId<HTMLButtonElement>('btn-start-wiz').disabled = n === 0;
+    byId('btn-start-label').textContent =
+      n === 0
+        ? 'Select at least 1 flavor'
+        : `Start prep (${n} ${n === 1 ? 'flavor' : 'flavors'})`;
+    byId('wiz-clear-btn').textContent = n === 0 ? 'Reset default' : 'Clear';
+  }
+
   function renderWizard(): void {
     const isPick = wizScreen === 'pick';
     const isCheck = wizScreen === 'checklist';
@@ -675,50 +711,33 @@ interface WebkitWindow extends Window {
     byId('wiz-footer-nav').classList.toggle('hidden', isPick);
 
     if (isPick) {
-      const reviewed = RECIPES.filter((r) => r.reviewed);
-      const unreviewed = RECIPES.filter((r) => !r.reviewed);
-      const selected = RECIPES.filter((r) => selectedIds.has(r.id));
-      const whiteCnt = selected.filter((r) => r.base === 'white-base').length;
-
-      const noteEl = byId('wiz-merge-note');
-      const whiteBase = BASES_BY_ID['white-base'];
-      if (whiteCnt >= 2 && whiteBase) {
-        noteEl.classList.remove('hidden');
-        noteEl.textContent = `${whiteCnt}× White Base flavors selected — will mix ${fmtG(whiteBase.yield_grams * whiteCnt)} in 1 bowl (${fmtG(whiteBase.yield_grams)} per tub).`;
-      } else {
-        noteEl.classList.add('hidden');
-      }
-
-      const renderRows = (list: Recipe[]): string =>
-        list
-          .map((r) => {
-            const sel = selectedIds.has(r.id);
-            return `
-              <button class="pick-row ${sel ? 'selected' : ''}" data-action="toggle-flavor" data-id="${esc(r.id)}">
+      if (!pickListsMounted) {
+        const reviewed = RECIPES.filter((r) => r.reviewed);
+        const unreviewed = RECIPES.filter((r) => !r.reviewed);
+        const renderRows = (list: Recipe[]): string =>
+          list
+            .map(
+              (r) => `
+              <button class="pick-row" data-action="toggle-flavor" data-id="${esc(r.id)}">
                 <div class="pick-left">
                   <span class="pick-box">✓</span>
                   <span class="pick-name">${r.emoji ? `${esc(r.emoji)} ` : ''}${esc(r.name)}</span>
                 </div>
                 <span class="pick-meta">${esc(r.base === 'white-base' ? 'White Base' : r.category)}</span>
               </button>
-            `;
-          })
-          .join('');
+            `,
+            )
+            .join('');
 
-      byId('wiz-pick-lists').innerHTML = `
-        <div class="wiz-section-label">Reviewed</div>
-        <div class="pick-list">${renderRows(reviewed)}</div>
-        <div class="wiz-section-label">Unreviewed Drafts</div>
-        <div class="pick-list">${renderRows(unreviewed)}</div>
-      `;
-
-      const n = selectedIds.size;
-      byId<HTMLButtonElement>('btn-start-wiz').disabled = n === 0;
-      byId('btn-start-label').textContent =
-        n === 0
-          ? 'Select at least 1 flavor'
-          : `Start prep (${n} ${n === 1 ? 'flavor' : 'flavors'})`;
-      byId('wiz-clear-btn').textContent = n === 0 ? 'Reset default' : 'Clear';
+        byId('wiz-pick-lists').innerHTML = `
+          <div class="wiz-section-label">Reviewed</div>
+          <div class="pick-list">${renderRows(reviewed)}</div>
+          <div class="wiz-section-label">Unreviewed Drafts</div>
+          <div class="pick-list">${renderRows(unreviewed)}</div>
+        `;
+        pickListsMounted = true;
+      }
+      syncPickState();
     } else if (isCheck) {
       const selected = RECIPES.filter((r) => selectedIds.has(r.id));
       byId('wiz-check-sub').textContent = `Total weights across ${selected
@@ -751,7 +770,7 @@ interface WebkitWindow extends Window {
           const h = fmtHint(it.item, it.grams);
           return `
             <button class="check-item ${done ? 'done' : ''}" data-action="toggle-check" data-key="${esc(it.key)}">
-              <span class="pick-box" style="${done ? 'background:var(--ink);border-color:var(--ink);color:var(--bg)' : ''}">✓</span>
+              <span class="pick-box">✓</span>
               <span class="check-amt">${fmtG(it.grams)}</span>
               <span>
                 ${esc(it.name)}
@@ -925,13 +944,13 @@ interface WebkitWindow extends Window {
         } else {
           selectedIds.clear();
         }
-        renderWizard();
+        syncPickState();
         break;
       case 'toggle-flavor':
         if (target.dataset.id) {
           if (selectedIds.has(target.dataset.id)) selectedIds.delete(target.dataset.id);
           else selectedIds.add(target.dataset.id);
-          renderWizard();
+          syncPickState();
         }
         break;
       case 'start-checklist':
@@ -943,9 +962,10 @@ interface WebkitWindow extends Window {
         break;
       case 'toggle-check':
         if (target.dataset.key) {
-          if (checkedSet.has(target.dataset.key)) checkedSet.delete(target.dataset.key);
-          else checkedSet.add(target.dataset.key);
-          renderWizard();
+          const isDone = !checkedSet.has(target.dataset.key);
+          if (isDone) checkedSet.add(target.dataset.key);
+          else checkedSet.delete(target.dataset.key);
+          target.classList.toggle('done', isDone);
         }
         break;
       case 'toggle-timer':
@@ -992,6 +1012,12 @@ interface WebkitWindow extends Window {
     if (e.key === 'ArrowRight') wizNext();
     if (e.key === 'ArrowLeft') wizPrev();
   });
+
+  if ('serviceWorker' in navigator && /^https?:$/.test(window.location.protocol)) {
+    window.addEventListener('load', () => {
+      void navigator.serviceWorker.register('./sw.js');
+    });
+  }
 
   syncThemeButton();
   setMode(mode);

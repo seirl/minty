@@ -29,10 +29,10 @@ steps:
     title: Melt chocolate & cool with water
     emoji: "🧊"
     add:
-      chocolate_chips: 75g | optional
+      chocolate_chips: 75g | dairy-free dark chocolate (55–70% cacao)
       vodka: 10g | optional, keeps texture extra soft
       water: 235g | part 2, cold
-    do: Stir in the chocolate chips until melted and smooth. Whisk in the remaining 235 g cold water (and vodka if using), and give a quick 15-second Stabmixer blitz if any specks remain.
+    do: Stir in the dark chocolate chips until melted and smooth. Whisk in the remaining 235 g cold water (and vodka if using), and give a quick 15-second Stabmixer blitz if any specks remain.
 
   - phase: chill
     title: Chill completely

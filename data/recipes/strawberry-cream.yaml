@@ -4,7 +4,7 @@ emoji: "🍓"
 category: Fruit Cream
 reviewed: false
 accent: rose
-notes: Milk is reduced from 350 g to 150 g to compensate for water in the strawberries so it never turns icy.
+notes: Milk is reduced to 150 g and paired with freeze-dried strawberries to bind free fruit water and triple real berry flavor without cooking.
 
 steps:
   - phase: prep
@@ -22,9 +22,10 @@ steps:
     timer: 2m30s
     add:
       strawberries: 250g
+      freeze_dried_strawberries: 18g | ~1 small pouch, absorbs water & boosts aroma
       whole_milk: 150g | reduced for fruit water
       lemon_juice: 5g
-    do: Combine strawberries, cold milk, lemon juice, and dry mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until completely smooth and thick.
+    do: Combine fresh strawberries, freeze-dried strawberries, cold milk, lemon juice, and dry mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until completely pulverized, smooth, and thick.
 
   - phase: prep
     title: Stir in cream by hand

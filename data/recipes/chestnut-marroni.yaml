@@ -4,14 +4,14 @@ emoji: "🌰"
 category: Dairy
 reviewed: false
 accent: cocoa
-notes: Uses sweetened Marronipüree, so base sugar is reduced to 75 g and milk to 250 g (~705 mL batch) for concentrated chestnut flavor.
+notes: Uses sweetened Marronipüree, so base sugar is set to 85 g and milk reduced to 250 g (~710 mL batch) for scoopable texture and concentrated chestnut flavor.
 
 steps:
   - phase: prep
     title: Whisk dry mix
     emoji: "🥣"
     add:
-      sugar: 75g | purée is already sweetened
+      sugar: 85g | purée is already sweetened
       guar_gum: 0.4g | reduced for chestnut starch
       salt: 1g
     do: Whisk the sugar, guar gum, and salt together in a small dry bowl.

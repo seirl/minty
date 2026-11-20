@@ -14,6 +14,7 @@ import jinja2
 
 from minty.compiler import RecipeValidationError, compile_catalog
 from minty.pdf import render_pdf_reportlab
+from minty.pwa import write_pwa_assets
 
 PKG_DIR = Path(__file__).resolve().parent
 TEMPLATES_DIR = PKG_DIR / "templates"
@@ -166,11 +167,14 @@ def build_project(root_dir: Path, check_only: bool = False) -> None:
         render_pdf_reportlab(pdf_path, catalog["ingredients"], bases, recipes)
         pdf_engine = "reportlab"
 
+    # 5. PWA manifest, icons, and offline service worker
+    write_pwa_assets(dist_dir, html_out)
+
     print(
         f"✓ Built {len(recipes)} recipes "
         f"({len(reviewed)} reviewed, {len(unreviewed)} unreviewed):\n"
         f"  • dist/ice_cream.md\n"
-        f"  • dist/index.html (TS via {ts_engine})\n"
+        f"  • dist/index.html + PWA (TS via {ts_engine})\n"
         f"  • dist/recipes.json\n"
         f"  • dist/ice_cream.typ\n"
         f"  • dist/ice_cream.pdf (via {pdf_engine})"
