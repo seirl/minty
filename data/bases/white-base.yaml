@@ -1,0 +1,29 @@
+id: white-base
+name: Master Cold-Prep White Base
+emoji: "🥛"
+description: Universal no-cook UHT dairy base for 1.2L ice cream machine.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 135g
+      guar_gum: 0.8g
+      salt: 1g
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl until completely combined so no lumps form.
+
+  - phase: prep
+    title: Hydrate in cold milk
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 350g
+    do: Pour the cold milk and dry sugar mix into a tall pitcher or bowl. Blitz with your Stabmixer for 2–3 minutes until completely dissolved and slightly thickened.
+
+  - phase: prep
+    title: Stir in cold cream by hand
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+    do: Put the Stabmixer down (or you will whip butter!). Gently stir in the cold heavy cream with a spoon or whisk.

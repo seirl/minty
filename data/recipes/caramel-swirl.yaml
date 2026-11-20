@@ -1,0 +1,52 @@
+id: caramel-swirl
+name: Caramel Swirl
+emoji: "🍮"
+category: Dairy
+reviewed: false
+accent: orange
+notes: Base sugar is reduced to 115 g and salt bumped to 2 g so the sweet caramel ribbons stay balanced.
+
+steps:
+  - phase: prep
+    title: Whisk salted dry mix
+    emoji: "🥣"
+    add:
+      sugar: 115g | reduced to balance caramel swirl
+      guar_gum: 0.8g
+      salt: 2g | salted caramel balance
+    do: Whisk the sugar, guar gum, and salt together in a small dry bowl.
+
+  - phase: prep
+    title: Hydrate in cold milk
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 350g
+    do: Combine cold milk and dry mix in a tall pitcher and blitz with your Stabmixer for 2–3 minutes until smooth and thickened.
+
+  - phase: prep
+    title: Stir in cream & vanilla by hand
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+      vanilla: 4g
+    do: Without using the blender, gently stir in the cold heavy cream and vanilla extract with a spoon or whisk.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍦"
+    timer: 20m
+    do: Pour chilled base into the spinning machine. Keep caramel sauce ready beside your chilled freezer container.
+
+  - phase: pack
+    title: Layer caramel ribbons in tub
+    emoji: "🍮"
+    add:
+      caramel_sauce: 80g | layered in 3 tiers when packing
+    do: Do NOT pour caramel into the spinning machine! Spoon 1/3 of the churned ice cream into your tub, drizzle caramel on top, and repeat 3 times. Freeze 3–4 hours.

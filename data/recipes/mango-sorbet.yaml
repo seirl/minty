@@ -1,0 +1,43 @@
+id: mango-sorbet
+name: Mango Sorbet
+emoji: "🥭"
+category: Sorbet
+reviewed: true
+accent: amber
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 135g
+      guar_gum: 0.4g
+      salt: 0.5g | pinch
+    do: Whisk the sugar, guar gum, and salt together in a small dry bowl to prevent lumps.
+
+  - phase: prep
+    title: Blitz mango cold in pitcher
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      mango: 400g
+      water: 200g
+      lime_juice: 15g
+    do: Combine mango, cold water, fresh lime juice, and dry sugar mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until completely dissolved and silky smooth.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until completely cold.
+
+  - phase: churn
+    title: Churn sorbet
+    emoji: "🥭"
+    timer: 20m
+    do: Pour chilled mango base into the spinning machine and churn until thick sorbet cushions form.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled freezer container and freeze for 3–4 hours to harden.

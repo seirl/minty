@@ -1,0 +1,51 @@
+id: strawberry-cream
+name: Strawberry Cream
+emoji: "🍓"
+category: Fruit Cream
+reviewed: false
+accent: rose
+notes: Milk is reduced from 350 g to 150 g to compensate for water in the strawberries so it never turns icy.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 125g
+      guar_gum: 0.8g
+      salt: 1g
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl.
+
+  - phase: prep
+    title: Blitz berries & milk
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      strawberries: 250g
+      whole_milk: 150g | reduced for fruit water
+      lemon_juice: 5g
+    do: Combine strawberries, cold milk, lemon juice, and dry mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until completely smooth and thick.
+
+  - phase: prep
+    title: Stir in cream by hand
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+    do: Without using the blender, gently stir in the cold heavy cream by hand.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍓"
+    timer: 20m
+    do: Pour chilled berry cream base into the spinning machine and churn until soft-serve consistency forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until scoopable.

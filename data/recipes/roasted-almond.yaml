@@ -1,0 +1,54 @@
+id: roasted-almond
+name: Roasted Almond
+emoji: "🌰"
+category: Dairy
+reviewed: false
+accent: amber
+notes: Cold-prep using 100% roasted almond butter (braunes Mandelmus, not unroasted weisses Mandelmus) — gives pure toasted-almond flavor with zero marzipan/benzaldehyde extract and zero steeping or straining.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 130g
+      guar_gum: 0.8g
+      salt: 1.5g
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl until completely combined so no lumps form.
+
+  - phase: prep
+    title: Blitz milk & almond butter
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 350g
+      almond_butter: 70g | 100% pure roasted (braunes Mandelmus), stirred well
+    do: Combine the cold milk, roasted almond butter, and dry sugar mix in a tall pitcher. Blitz thoroughly with your Stabmixer for 2–3 minutes until the nut paste and oils are completely emulsified and velvety smooth.
+
+  - phase: prep
+    title: Stir in cold cream & vanilla
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+      vanilla: 4g
+    do: Put the Stabmixer down (or you will whip butter!). Gently stir in the cold heavy cream and vanilla extract with a spoon or whisk.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn roasted almond base
+    emoji: "🍦"
+    timer: 20m
+    do: Give the chilled base a quick stir, pour into the spinning machine, and churn until thick soft-serve consistency forms. (If adding toasted almond flakes, toast in a dry pan and cool completely first.)
+
+  - phase: mix_in
+    title: Optional toasted flakes & pack
+    emoji: "🌰"
+    timer: 45s
+    add:
+      sliced_almonds: 40g | optional, toasted & cooled
+    do: Toss in cooled toasted almond flakes during the final 45 seconds of churning if desired, then transfer to your chilled container and freeze for 3–4 hours.

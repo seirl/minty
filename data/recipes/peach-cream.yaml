@@ -1,0 +1,51 @@
+id: peach-cream
+name: Peach Cream
+emoji: "🍑"
+category: Fruit Cream
+reviewed: false
+accent: orange
+notes: Uses 150 g whole milk instead of 350 g so ripe peach water stays creamy rather than icy.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 125g
+      guar_gum: 0.8g
+      salt: 1g
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl.
+
+  - phase: prep
+    title: Blitz peaches & milk
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      peaches: 250g
+      whole_milk: 150g | reduced for fruit water
+      lemon_juice: 5g
+    do: Combine peeled ripe peaches, cold milk, lemon juice, and dry mix in a tall pitcher. Blitz with your Stabmixer for 2–3 minutes until silky smooth.
+
+  - phase: prep
+    title: Stir in cream by hand
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+    do: Without using the blender, gently stir in the cold heavy cream by hand.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍑"
+    timer: 20m
+    do: Churn in the spinning machine until thick soft-serve consistency forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until scoopable.

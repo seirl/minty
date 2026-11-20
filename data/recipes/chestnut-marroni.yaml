@@ -1,0 +1,52 @@
+id: chestnut-marroni
+name: Chestnut Marroni
+emoji: "🌰"
+category: Dairy
+reviewed: false
+accent: cocoa
+notes: Uses sweetened Marronipüree, so base sugar is reduced to 75 g and milk to 250 g (~705 mL batch) for concentrated chestnut flavor.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 75g | purée is already sweetened
+      guar_gum: 0.4g | reduced for chestnut starch
+      salt: 1g
+    do: Whisk the sugar, guar gum, and salt together in a small dry bowl.
+
+  - phase: prep
+    title: Blitz milk & chestnut purée
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 250g | reduced for chestnut purée volume
+      chestnut_puree: 200g
+    do: Combine cold milk, sweetened chestnut purée, and dry mix in a pitcher and blitz with your Stabmixer for 2–3 minutes until velvety smooth.
+
+  - phase: prep
+    title: Stir in cream & vanilla by hand
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+      vanilla: 4g
+      vodka: 12g | optional Kirsch or Dark Rum
+    do: Gently stir in the cold heavy cream and vanilla (plus Kirsch/Rum if using) with a spoon or whisk.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🌰"
+    timer: 20m
+    do: Churn in the machine until thick cushions form around the paddle.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until scoopable.

@@ -1,0 +1,69 @@
+# Canonical ingredient registry for 1.2L ice cream & sorbet recipes.
+#
+# Simple form:
+#   ingredient_id: "Display Name"
+#
+# With density for spoon/drop canonicalization & automatic human hints:
+#   ingredient_id:
+#     name: "Display Name"
+#     g_per_tsp: 3.2      # Enables "1/4 tsp" <-> "0.8g (~1/4 tsp)"
+#     g_per_drop: 0.04    # Enables "4 drops" <-> "0.16g (~4 drops)"
+
+# Core Dairy & Liquids
+whole_milk: Cold Whole Milk (UHT)
+heavy_cream: Cold Heavy Cream (UHT)
+coconut_milk: Full-Fat Canned Coconut Milk
+water: Cold Water
+
+# Sugars & Stabilizers
+sugar: White Granulated Sugar
+honey: Floral Runny Honey
+guar_gum:
+  name: Guar Gum
+  g_per_tsp: 3.2
+salt:
+  name: Fine Salt
+  g_per_tsp: 4.0
+
+# Extracts, Oils & Spirits
+vanilla:
+  name: Vanilla Extract / Paste
+  g_per_tsp: 4.0
+almond_extract:
+  name: Pure Almond Extract
+  g_per_tsp: 4.0
+peppermint_oil:
+  name: Superstrength Peppermint Oil
+  g_per_drop: 0.04
+sunflower_oil:
+  name: Sunflower / Neutral Oil
+  g_per_tsp: 4.5
+vodka:
+  name: Vodka or Liqueur
+  g_per_tsp: 5.0
+
+# Citrus
+lemon_juice:
+  name: Fresh Lemon Juice
+  g_per_tsp: 5.0
+lime_juice:
+  name: Fresh Lime Juice
+  g_per_tsp: 5.0
+
+# Cocoa, Chocolate & Mix-Ins
+cocoa_powder: Dutch-Process Cocoa Powder
+dark_chocolate: Dark Chocolate
+chocolate_chips: Dark Chocolate Chips
+oreos: Oreo Cookies
+caramel_sauce: Caramel Sauce / Dulce de Leche
+sliced_almonds: Sliced / Flaked Almonds
+shredded_coconut: Unsweetened Shredded Coconut
+
+# Fruit & Nut Purées
+mango: Mango Purée (or thawed chunks)
+strawberries: Strawberries (fresh or thawed)
+peaches: Peeled Ripe Peaches
+raspberries: Raspberries (fresh or thawed)
+chestnut_puree: Sweetened Chestnut Purée (Marronipüree)
+steamed_chestnuts: Peeled Steamed Chestnuts (Unsweetened)
+almond_butter: Roasted Almond Butter (Braunes Mandelmus)

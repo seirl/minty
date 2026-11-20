@@ -1,0 +1,50 @@
+id: milk-and-honey
+name: Milk & Honey
+emoji: "🍯"
+category: Dairy
+reviewed: false
+accent: amber
+notes: Invert sugars in honey depress the freezing point, keeping this flavor extra soft and scoopable straight from the freezer.
+
+steps:
+  - phase: prep
+    title: Whisk reduced-sugar dry mix
+    emoji: "🥣"
+    add:
+      sugar: 90g | reduced for honey
+      guar_gum: 0.8g
+      salt: 1g
+    do: Whisk the sugar, guar gum, and salt together in a small dry bowl.
+
+  - phase: prep
+    title: Blitz milk & honey
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 350g
+      honey: 35g
+    do: Pour cold milk, runny honey, and dry sugar mix into a pitcher and blitz with your Stabmixer for 2–3 minutes until completely dissolved.
+
+  - phase: prep
+    title: Stir in cream by hand
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+    do: Without using the blender, gently stir in the cold heavy cream with a spoon or whisk.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍯"
+    timer: 20m
+    do: Churn in the spinning machine until thick soft-serve consistency forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until firm.

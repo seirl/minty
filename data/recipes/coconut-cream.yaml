@@ -1,0 +1,53 @@
+id: coconut-cream
+name: Coconut Cream
+emoji: "🥥"
+category: Dairy
+reviewed: false
+accent: stone
+notes: Replaces whole milk with 1 full 400 g can of coconut milk + 1 packet (250 g) heavy cream; blitzing room-temp coconut milk with guar gum emulsifies the coconut fat so it never turns waxy.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 135g
+      guar_gum: 0.8g
+      salt: 1.5g
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl until completely combined so no lumps form.
+
+  - phase: prep
+    title: Emulsify coconut milk
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      coconut_milk: 400g | 1 standard can, unsweetened, room temp
+    do: Use room-temperature canned coconut milk so the coconut fat is fluid rather than solidified. Combine with the dry sugar mix in a tall pitcher and blitz with your Stabmixer for 2–3 minutes until completely dissolved, glossy, and emulsified.
+
+  - phase: prep
+    title: Stir in cold cream & vanilla
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+      vanilla: 4g
+    do: Put the Stabmixer down (or you will whip butter!). Gently stir in the cold heavy cream and vanilla extract with a spoon or whisk.
+
+  - phase: chill
+    title: Chill base thoroughly
+    emoji: "❄️"
+    timer: 3h
+    do: Refrigerate covered for 3–4 hours until thoroughly cold (4°C or below, since the coconut milk started at room temperature).
+
+  - phase: churn
+    title: Churn coconut cream
+    emoji: "🥥"
+    timer: 20m
+    do: Give the chilled coconut base a quick stir, pour into the spinning machine, and churn until thick soft-serve consistency forms. (If using toasted coconut, toast in a dry skillet until golden and cool completely first.)
+
+  - phase: mix_in
+    title: Optional toasted coconut & pack
+    emoji: "🥥"
+    timer: 45s
+    add:
+      shredded_coconut: 40g | optional, toasted & cooled
+    do: Toss in cooled toasted shredded coconut during the final 45 seconds of churning if desired, then transfer to your chilled container and freeze for 3–4 hours.

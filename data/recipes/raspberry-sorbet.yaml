@@ -1,0 +1,49 @@
+id: raspberry-sorbet
+name: Raspberry Sorbet
+emoji: "🍇"
+category: Sorbet
+reviewed: false
+accent: rose
+notes: Strained through a fine-mesh sieve after blending to remove crunchy raspberry seeds.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 150g
+      guar_gum: 0.4g
+      salt: 0.5g | pinch
+    do: Whisk the sugar, guar gum, and salt together in a dry bowl so no lumps form.
+
+  - phase: prep
+    title: Blitz raspberries cold
+    emoji: "⚡"
+    timer: 2m
+    add:
+      raspberries: 400g
+      water: 200g
+      lemon_juice: 15g
+    do: Combine raspberries, cold water, lemon juice, and dry sugar mix in a pitcher. Blitz with your Stabmixer for 2 minutes until completely dissolved.
+
+  - phase: prep
+    title: Strain out seeds
+    emoji: "🕸️"
+    do: Pour the blended sorbet base through a fine-mesh sieve into your chilling container, pressing firmly with a spoon to remove all seeds.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until completely cold.
+
+  - phase: churn
+    title: Churn sorbet
+    emoji: "🍇"
+    timer: 20m
+    do: Churn chilled seedless purée in the spinning machine until thick sorbet forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours to harden.

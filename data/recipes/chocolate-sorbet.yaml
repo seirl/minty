@@ -1,0 +1,52 @@
+id: chocolate-sorbet
+name: Katie's Chocolate Sorbet
+emoji: "🍫"
+category: Sorbet
+reviewed: true
+accent: cocoa
+notes: Cooked briefly on the stovetop to bloom the cocoa; prep first so it cools down in the fridge.
+
+steps:
+  - phase: prep
+    title: Dry-whisk cocoa & sugar
+    emoji: "🍫"
+    add:
+      sugar: 165g
+      cocoa_powder: 60g
+      salt: 1.5g
+      guar_gum: 0.4g
+    do: In a saucepan (off the heat), whisk all four dry ingredients together thoroughly so the cocoa and guar gum never clump.
+
+  - phase: prep
+    title: Bloom & boil 30 seconds
+    emoji: "🔥"
+    timer: 30s
+    add:
+      water: 230g | part 1
+    do: Whisk the first 230 g of cold water into the saucepan. Heat over medium, whisking regularly, and bring to a gentle boil for 30 seconds. Remove from heat.
+
+  - phase: prep
+    title: Melt chocolate & cool with water
+    emoji: "🧊"
+    add:
+      chocolate_chips: 75g | optional
+      vodka: 10g | optional, keeps texture extra soft
+      water: 235g | part 2, cold
+    do: Stir in the chocolate chips until melted and smooth. Whisk in the remaining 235 g cold water (and vodka if using), and give a quick 15-second Stabmixer blitz if any specks remain.
+
+  - phase: chill
+    title: Chill completely
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered until thoroughly cold (at least 2–4 hours since it started warm).
+
+  - phase: churn
+    title: Churn sorbet
+    emoji: "🍫"
+    timer: 20m
+    do: Pour chilled chocolate base into the spinning machine and churn until thick, fudgy sorbet forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until firm.

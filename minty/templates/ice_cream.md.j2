@@ -1,0 +1,61 @@
+# 1.2L Ice Cream & Sorbet Canonical Recipes
+
+> **Auto-generated from `data/` by `minty`.** Edit the YAML files in `data/recipes/`, `data/bases/`, or `data/ingredients.yaml` and run `minty`.
+
+## Recipe Index ({{ reviewed_count }} Reviewed · {{ unreviewed_count }} Unreviewed)
+
+| Flavor | Category | Base | Batch Weight | Status |
+| :--- | :--- | :--- | ---: | :--- |
+{% for r in recipes -%}
+| {{ r.emoji }} **[{{ r.name }}](#{{ r.id }})** | {{ r.category }} | {{ "White Base" if r.base == "white-base" else (r.base_name or "Standalone") }} | {{ r.total_grams_fmt }} | {{ "Reviewed" if r.reviewed else "Unreviewed" }} |
+{% endfor %}
+
+---
+
+{% for b in bases %}
+## {{ b.name }} — Batch Multiplier Cheatsheet
+
+*{{ b.description }} Used by: {{ b.used_by | join(", ") }}.*
+
+| Ingredient | 1× Batch | 2× Batches | 3× Batches | 4× Batches |
+| :--- | ---: | ---: | ---: | ---: |
+{% for ing in b.ingredients -%}
+| **{{ ing.name }}** | {{ ing.scales[1] }} | {{ ing.scales[2] }} | {{ ing.scales[3] }} | {{ ing.scales[4] }} |
+{% endfor -%}
+| **Total Base Weight** | **{{ b.yield_scales[1] }}** | **{{ b.yield_scales[2] }}** | **{{ b.yield_scales[3] }}** | **{{ b.yield_scales[4] }}** |
+| **Weigh Per Tub** | **{{ b.yield_scales[1] }}** | **{{ b.yield_scales[1] }} / tub** | **{{ b.yield_scales[1] }} / tub** | **{{ b.yield_scales[1] }} / tub** |
+
+{% endfor %}
+---
+
+{% for section_title, group in [("Reviewed Canonical Recipes", reviewed_recipes), ("Unreviewed Draft Recipes", unreviewed_recipes)] %}
+# {{ section_title }}
+
+{% for r in group %}
+<a id="{{ r.id }}"></a>
+## {{ r.emoji }} {{ r.name }}{% if not r.reviewed %} *(Unreviewed)*{% endif %}
+
+* **Category:** {{ r.category }} · **Base:** {{ r.base_name or "Standalone" }} · **Total Batch:** {{ r.total_grams_fmt }}{% if r.optional_grams > 0 %} (+ {{ r.optional_grams_fmt }} optional){% endif %}
+{% if r.notes -%}
+* **Note:** {{ r.notes }}
+{% endif %}
+
+### Ingredients
+
+| Amount | Ingredient | Notes |
+| ---: | :--- | :--- |
+{% for ing in r.ingredients -%}
+| **{{ ing.display }}** | {{ ing.name }}{% if ing.optional %} *(optional)*{% endif %} | {{ ing.note }} |
+{% endfor %}
+
+### Steps
+
+{% for step in r.expanded_steps -%}
+{{ loop.index }}. **{{ step.title }}**{% if step.timer_label %} *({{ step.timer_label }})*{% endif %}{% if step.inputs_inline %} — {{ step.inputs_inline }}{% endif %}
+   {{ step.do }}
+{% endfor %}
+
+---
+
+{% endfor %}
+{% endfor %}

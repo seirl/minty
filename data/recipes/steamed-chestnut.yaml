@@ -1,0 +1,60 @@
+id: steamed-chestnut
+name: Steamed Chestnut (Marrons)
+emoji: "🌰"
+category: Dairy
+reviewed: false
+accent: cocoa
+notes: Built for a 200 g vacuum pack of unsweetened "marrons pelés et cuits à la vapeur" — milk is reduced to 200 g (~700 mL batch) to concentrate the chestnut flavor and stay well below an 800 mL bowl limit.
+
+steps:
+  - phase: prep
+    title: Whisk dry mix
+    emoji: "🥣"
+    add:
+      sugar: 120g
+      guar_gum: 0.4g | reduced since whole chestnuts add natural starch
+      salt: 1.5g
+    do: Whisk the sugar, guar gum, and salt together in a small dry bowl until completely combined.
+
+  - phase: prep
+    title: Warm chestnuts in milk
+    emoji: "🔥"
+    timer: 1m30s
+    add:
+      steamed_chestnuts: 200g | 1 vacuum pack, unsweetened
+      whole_milk: 100g | part 1
+    do: Crumble the peeled steamed chestnuts into a microwave-safe tall pitcher or bowl with 100 g of the milk. Microwave for 60–90 seconds (or warm briefly in a saucepan) until hot and soft so the firmed-up starch blends without specks.
+
+  - phase: prep
+    title: Blitz smooth with remaining cold milk
+    emoji: "⚡"
+    timer: 2m30s
+    add:
+      whole_milk: 100g | part 2, cold
+    do: Pour in the remaining 100 g cold milk and the dry sugar mix. Blitz thoroughly with your Stabmixer for 2–3 minutes until completely dissolved and velvety smooth.
+
+  - phase: prep
+    title: Stir in cold cream & vanilla
+    emoji: "🥄"
+    add:
+      heavy_cream: 250g
+      vanilla: 6g
+      vodka: 12g | optional Dark Rum or Kirsch
+    do: Put the Stabmixer down. Gently stir in the cold heavy cream and vanilla extract (plus Dark Rum or Kirsch if using) with a spoon or whisk.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn chestnut base
+    emoji: "🌰"
+    timer: 20m
+    do: Give the chilled chestnut base a quick stir, pour into the spinning machine, and churn until thick soft-serve cushions form around the paddle.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until scoopable.

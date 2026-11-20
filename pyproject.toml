@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit_core>=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "minty"
+version = "0.1.0"
+description = "Canonical 1.2L ice cream & sorbet recipe compiler (Markdown, Web, JSON, PDF)"
+requires-python = ">=3.11"
+dependencies = [
+  "jinja2>=3.1",
+  "pyyaml>=6.0",
+  "reportlab>=4.0",
+]
+
+[project.scripts]
+minty = "minty.cli:main"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.format]
+quote-style = "preserve"

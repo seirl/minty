@@ -1,0 +1,36 @@
+id: oreo-cookies
+name: Oreo Cookies
+emoji: "🍪"
+category: Dairy
+reviewed: true
+base: white-base
+accent: slate
+notes: Leave excess black cookie dust in the chopping bowl so the sweet-cream base stays bright white.
+
+steps:
+  - phase: flavor
+    title: Stir in vanilla
+    emoji: "🍦"
+    add:
+      vanilla: 6g
+    do: Gently stir the vanilla extract into the white dairy base with a spoon.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍦"
+    timer: 20m
+    do: Pour chilled base into the spinning machine. While it churns, break the Oreos into small bite-sized pieces (leave excess fine black dust behind in the bowl).
+
+  - phase: mix_in
+    title: Drop in chopped Oreos & pack
+    emoji: "🍪"
+    timer: 45s
+    add:
+      oreos: 120g | 11–12 cookies, bite-sized pieces
+    do: Pour the Oreo pieces into the machine during the final 45 seconds of churning, then immediately transfer to your chilled freezer tub.

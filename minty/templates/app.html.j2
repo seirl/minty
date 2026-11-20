@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.2L Ice Cream Recipes</title>
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --subtle-bg: #F8F7F4;
+      --ink: #18181B;
+      --muted: #71717A;
+      --line: #E5E5E0;
+      --line-light: #F0EFEA;
+      --amber: #B45309;
+      --amber-bg: #FEF3C7;
+      --green: #15803D;
+      --sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+      --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ==================== MINIMAL TOP NAV ==================== */
+    .header {
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .site-title {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .awake-dot {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: var(--muted);
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 2px solid transparent;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+    }
+
+    .nav-link.active {
+      color: var(--ink);
+      font-weight: 600;
+      border-bottom-color: var(--ink);
+    }
+
+    .nav-sep {
+      width: 1px;
+      height: 16px;
+      background: var(--line);
+    }
+
+    /* ==================== RECIPE BOOK LAYOUT ==================== */
+    .book-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .mobile-back {
+      display: none;
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 780px) {
+      .header-inner {
+        padding: 0 16px;
+      }
+      .nav-links {
+        gap: 14px;
+      }
+      .book-layout {
+        grid-template-columns: 1fr;
+        padding: 20px 16px 64px;
+        gap: 24px;
+      }
+      .book-layout.mobile-reading .sidebar {
+        display: none;
+      }
+      .book-layout:not(.mobile-reading) .sheet {
+        display: none;
+      }
+      .mobile-back {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hide-xs {
+        display: none !important;
+      }
+    }
+
+    /* Sidebar Index */
+    .sidebar-group {
+      margin-bottom: 26px;
+    }
+
+    .sidebar-heading {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin: 0 0 8px;
+      padding: 0 8px;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar-btn {
+      width: 100%;
+      text-align: left;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .sidebar-btn:hover {
+      background: var(--subtle-bg);
+    }
+
+    .sidebar-btn.muted-item {
+      color: var(--muted);
+    }
+
+    .sidebar-btn.active {
+      background: var(--subtle-bg);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* Recipe Sheet */
+    .sheet-header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    .sheet-top-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sheet-title {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .tag-unreviewed {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--amber);
+      background: var(--amber-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    .sheet-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    .scale-picker {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .scale-opt {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 3px 9px;
+      color: var(--muted);
+      border-right: 1px solid var(--line);
+    }
+
+    .scale-opt:last-child {
+      border-right: none;
+    }
+
+    .scale-opt.active {
+      background: var(--ink);
+      color: var(--bg);
+      font-weight: 600;
+    }
+
+    .text-action {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .text-action:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
+    .sheet-meta {
+      margin-top: 6px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .sheet-note {
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Two-Column Recipe Body */
+    .sheet-body {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .sheet-body {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .col-heading {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    /* Clean Tabular Ingredient Rows */
+    .ing-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .ing-table tr {
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .ing-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .ing-amt {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: right;
+      padding: 7px 14px 7px 0;
+      white-space: nowrap;
+      width: 72px;
+      vertical-align: baseline;
+    }
+
+    .ing-label {
+      padding: 7px 0;
+      font-size: 14.5px;
+      vertical-align: baseline;
+    }
+
+    .ing-sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Clean Numbered Method Steps */
+    .steps-ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .step-row {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      margin-bottom: 20px;
+    }
+
+    .step-idx {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    .step-head {
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .step-title {
+      font-weight: 600;
+    }
+
+    .step-inline-meta {
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .step-prose {
+      margin: 0;
+      color: #3F3F46;
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    /* Master White Base Reference Table */
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .ref-table th, .ref-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line-light);
+      text-align: right;
+    }
+
+    .ref-table th:first-child, .ref-table td:first-child {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .ref-table th {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ref-table td.num {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ref-table tr.total td {
+      font-weight: 700;
+      border-top: 1px solid var(--line);
+      border-bottom: none;
+    }
+
+    /* ==================== BATCH WIZARD ==================== */
+    .wizard-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 28px 20px 100px;
+    }
+
+    .wiz-h1 {
+      font-family: var(--serif);
+      font-size: 28px;
+      margin: 0 0 4px;
+      line-height: 1.2;
+    }
+
+    .wiz-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 24px;
+    }
+
+    .wiz-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin: 22px 0 8px;
+    }
+
+    .pick-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .pick-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 4px;
+      border-bottom: 1px solid var(--line-light);
+      text-align: left;
+      font-size: 15.5px;
+    }
+
+    .pick-row:hover {
+      background: var(--subtle-bg);
+    }
+
+    .pick-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pick-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      border: 1.5px solid #A1A1AA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: transparent;
+      flex-shrink: 0;
+    }
+
+    .pick-row.selected .pick-box {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
+    }
+
+    .pick-row.selected .pick-name {
+      font-weight: 600;
+    }
+
+    .pick-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .wiz-note-bar {
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: var(--subtle-bg);
+      border-radius: 8px;
+      font-size: 13.5px;
+      color: var(--ink);
+    }
+
+    /* Checklist */
+    .check-item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 24px 86px 1fr;
+      align-items: baseline;
+      gap: 10px;
+      padding: 11px 2px;
+      border-bottom: 1px solid var(--line-light);
+      text-align: left;
+    }
+
+    .check-item.done {
+      opacity: 0.4;
+      text-decoration: line-through;
+    }
+
+    .check-amt {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 15.5px;
+      text-align: right;
+    }
+
+    /* Teleprompter Step */
+    .step-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--muted);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    .tele-step-title {
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.18;
+      margin: 6px 0 22px;
+    }
+
+    .tele-ing-list {
+      border-top: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .tele-ing-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .tele-ing-name {
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .tele-ing-amt {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+      font-size: 22px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tele-prose {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #27272A;
+      margin: 0 0 24px;
+    }
+
+    .timer-button {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--ink);
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .timer-button.running {
+      background: var(--amber-bg);
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    /* Fixed Bottom Bar in Wizard */
+    .wiz-footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid var(--line);
+      padding: 12px 20px;
+      z-index: 20;
+    }
+
+    .wiz-footer-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-secondary {
+      padding: 13px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      font-size: 14.5px;
+    }
+
+    .btn-primary {
+      flex: 1;
+      padding: 13px 20px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--bg);
+      font-weight: 600;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* Jump Modal */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 40;
+    }
+
+    .jump-sheet {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-width: 560px;
+      max-height: 75dvh;
+      margin: 0 auto;
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      border-radius: 14px 14px 0 0;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .jump-head {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .jump-body {
+      overflow-y: auto;
+      padding: 8px 20px 24px;
+    }
+
+    .jump-row {
+      width: 100%;
+      text-align: left;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--line-light);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .jump-row.current {
+      font-weight: 700;
+    }
+
+    /* ==================== PRINT ==================== */
+    @media print {
+      @page { margin: 14mm; }
+      .header, .sidebar, .sheet-actions, .mobile-back, .wizard-wrap, .wiz-footer, .no-print {
+        display: none !important;
+      }
+      .book-layout {
+        display: block !important;
+        padding: 0 !important;
+      }
+      .sheet {
+        display: block !important;
+      }
+      .sheet-body {
+        grid-template-columns: 220px 1fr !important;
+        gap: 32px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="site-title" data-action="go-home">
+        <span>1.2L Ice Cream</span>
+        <span id="wakelock-pill" class="awake-dot hidden">· Awake</span>
+      </button>
+
+      <nav class="nav-links">
+        <button id="nav-book" class="nav-link" data-action="set-mode" data-mode="book">Recipes</button>
+        <button id="nav-wizard" class="nav-link" data-action="set-mode" data-mode="wizard">Batch Wizard</button>
+        <span class="nav-sep hide-xs"></span>
+        <button class="nav-link hide-xs" data-action="print">Print</button>
+        <a class="nav-link" href="ice_cream.pdf" target="_blank">PDF</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== MODE 1: RECIPES ==================== -->
+  <main id="view-book" class="book-layout hidden">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="sheet">
+      <button class="mobile-back" data-action="close-mobile-sheet">← All recipes</button>
+      <div id="sheet-content"></div>
+    </section>
+  </main>
+
+  <!-- ==================== MODE 2: BATCH WIZARD ==================== -->
+  <section id="view-wizard" class="wizard-wrap hidden">
+
+    <!-- Picker -->
+    <div id="wiz-pick">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+        <h1 class="wiz-h1">Batch Wizard</h1>
+        <button id="wiz-clear-btn" class="text-action" style="font-size:13.5px;" data-action="clear-selection">Clear</button>
+      </div>
+      <p class="wiz-sub">Select flavors to prep. Shared White Base batches automatically combine into one bowl.</p>
+
+      <div id="wiz-merge-note" class="wiz-note-bar hidden"></div>
+      <div id="wiz-pick-lists"></div>
+    </div>
+
+    <!-- Counter Checklist -->
+    <div id="wiz-checklist" class="hidden">
+      <div class="step-topbar">
+        <span>Mise en place</span>
+        <button class="text-action" data-action="jump-pick">Edit flavors</button>
+      </div>
+      <h1 class="wiz-h1">Put on the counter</h1>
+      <p id="wiz-check-sub" class="wiz-sub"></p>
+      <div id="wiz-check-rows" style="border-top: 1px solid var(--line);"></div>
+      <div class="wiz-note-bar" id="wiz-tools-note"></div>
+    </div>
+
+    <!-- Teleprompter Step -->
+    <div id="wiz-step" class="hidden">
+      <div class="step-topbar">
+        <span id="wiz-step-meta">Step 1 of 10</span>
+        <button class="text-action" data-action="open-jump">All steps ☰</button>
+      </div>
+      <div id="wiz-step-body"></div>
+    </div>
+
+  </section>
+
+  <!-- Wizard Bottom Bar -->
+  <footer id="wiz-footer" class="wiz-footer hidden">
+    <div class="wiz-footer-inner" id="wiz-footer-pick">
+      <button id="btn-start-wiz" class="btn-primary" data-action="start-checklist">
+        <span id="btn-start-label">Start prep</span>
+        <span>→</span>
+      </button>
+    </div>
+    <div class="wiz-footer-inner hidden" id="wiz-footer-nav">
+      <button class="btn-secondary" data-action="wiz-prev">← Back</button>
+      <button class="btn-primary" data-action="wiz-next">
+        <span id="btn-next-label">Next step</span>
+        <span>→</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Jump Sheet -->
+  <div id="jump-backdrop" class="backdrop hidden" data-action="close-jump"></div>
+  <aside id="jump-sheet" class="jump-sheet hidden">
+    <div class="jump-head">
+      <span>Jump to step</span>
+      <div style="display:flex;gap:14px;font-size:13px;font-weight:500;">
+        <button class="text-action" data-action="jump-churn">Jump to Churning</button>
+        <button class="text-action" data-action="close-jump">Close</button>
+      </div>
+    </div>
+    <div id="jump-list" class="jump-body"></div>
+  </aside>
+
+  <script id="minty-data" type="application/json">{{ payload_json | safe }}</script>
+  <script>{{ app_js | safe }}</script>
+</body>
+</html>

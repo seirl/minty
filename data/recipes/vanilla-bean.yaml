@@ -1,0 +1,32 @@
+id: vanilla-bean
+name: Vanilla Bean
+emoji: "🍦"
+category: Dairy
+reviewed: true
+base: white-base
+accent: stone
+
+steps:
+  - phase: flavor
+    title: Stir in vanilla
+    emoji: "🍦"
+    add:
+      vanilla: 8g
+    do: Gently stir the vanilla extract or bean paste into the white dairy base with a spoon.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍦"
+    timer: 20m
+    do: Pour chilled base into the spinning machine and churn until thick soft-serve consistency forms. Keep a chilled container nearby.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to your chilled container and freeze for 3–4 hours until firm and scoopable.

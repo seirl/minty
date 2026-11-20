@@ -1,0 +1,38 @@
+id: mint-choc-chip
+name: Mint Choc Chip
+emoji: "🌿"
+category: Dairy
+reviewed: true
+base: white-base
+accent: emerald
+notes: Stracciatella style — melted chocolate shatters on the cold spinning paddle into crisp flakes.
+
+steps:
+  - phase: flavor
+    title: Stir in peppermint & vanilla
+    emoji: "🌿"
+    add:
+      peppermint_oil: 4 drops | or 6g (1.5 tsp) standard peppermint extract
+      vanilla: 4g
+    do: Gently stir the peppermint oil and vanilla extract into the white dairy base with a spoon.
+
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Refrigerate covered for 2–4 hours until thoroughly cold so the guar gum hydrates.
+
+  - phase: churn
+    title: Churn base
+    emoji: "🍦"
+    timer: 20m
+    do: Pour chilled Mint base into the spinning machine. While it churns, melt the dark chocolate and oil together in a mug (20s microwave bursts) until smooth and lukewarm.
+
+  - phase: mix_in
+    title: Drizzle stracciatella & pack
+    emoji: "🍫"
+    timer: 1m30s
+    add:
+      dark_chocolate: 100g
+      sunflower_oil: 7g | melted together with chocolate
+    do: Pour the lukewarm chocolate mixture in a thin thread directly onto the spinning paddle during the final 1–2 minutes so it shatters into flakes, then pack into your freezer tub.

@@ -1,0 +1,26 @@
+id: fior-di-latte
+name: Fior di Latte
+emoji: "🥛"
+category: Dairy
+reviewed: false
+base: white-base
+accent: stone
+notes: Pure alpine sweet cream with zero extracts.
+
+steps:
+  - phase: chill
+    title: Chill base
+    emoji: "❄️"
+    timer: 2h
+    do: Leave the white dairy base completely plain and refrigerate covered for 2–4 hours until thoroughly cold.
+
+  - phase: churn
+    title: Churn sweet cream
+    emoji: "🥛"
+    timer: 20m
+    do: Pour chilled base into the spinning machine and churn until thick soft-serve consistency forms.
+
+  - phase: pack
+    title: Pack into freezer tub
+    emoji: "📦"
+    do: Transfer to a chilled container and freeze for 3–4 hours until scoopable.

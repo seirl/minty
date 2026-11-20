@@ -1,0 +1,13 @@
+# Generated site & PDF outputs (built in CI for GitHub Pages)
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+.venv/
+
+# Nix
+result
+result-*
